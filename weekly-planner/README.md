@@ -98,8 +98,28 @@ Weekly recurring tasks:
 
 ## Browser Extensions
 
-The `extensions/` folder contains browser extensions for store integrations:
-- `tesco/` - Add items directly to Tesco basket
+The `extensions/` folder contains browser extensions for store integrations.
+
+### Tesco Extension (Edge/Chrome)
+
+Adds items directly to your Tesco basket from the shopping list.
+
+**Installation:**
+
+1. Download `tesco-extension-vX.X.X.zip` from [Releases](https://github.com/jade-codes/automation-templates/releases)
+2. Unzip to a folder (e.g., `~/tesco-extension`)
+3. Open your browser's extensions page:
+   - **Edge**: `edge://extensions`
+   - **Chrome**: `chrome://extensions`
+4. Enable **Developer mode** (toggle in top-right)
+5. Click **Load unpacked**
+6. Select the unzipped `tesco` folder
+7. The extension icon should appear in your toolbar
+
+**Usage:**
+1. Open your Weekly Planner shopping list
+2. Click the Tesco extension icon
+3. Items with Tesco URLs will be added to your basket
 
 ## License
 
