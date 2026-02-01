@@ -2,6 +2,20 @@
 
 A modular weekly planning app for meals, activities, chores, and shopping lists.
 
+## Quick Start
+
+### Option 1: Use as GitHub Template
+1. Click **"Use this template"** → **"Create a new repository"**
+2. Clone your new repo
+3. Run the server and open in browser
+
+### Option 2: degit (no git history)
+```bash
+npx degit jade-codes/automation-templates/weekly-planner my-planner
+cd my-planner
+python3 server.py
+```
+
 ## Features
 
 - **Meal Planning**: Create meal bundles with ingredients, assign to days of the week
