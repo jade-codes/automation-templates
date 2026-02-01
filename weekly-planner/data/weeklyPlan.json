@@ -1,0 +1,52 @@
+{
+  "breakfast": {
+    "mon": null,
+    "tue": null,
+    "wed": null,
+    "thu": null,
+    "fri": null,
+    "sat": null,
+    "sun": null
+  },
+  "lunch": {
+    "mon": null,
+    "tue": null,
+    "wed": null,
+    "thu": null,
+    "fri": null,
+    "sat": null,
+    "sun": null
+  },
+  "dinner": {
+    "mon": null,
+    "tue": null,
+    "wed": null,
+    "thu": null,
+    "fri": null,
+    "sat": null,
+    "sun": null
+  },
+  "activities": {
+    "wed-eve": [
+      {
+        "id": "gym",
+        "name": "Gym"
+      }
+    ],
+    "tue-pm": []
+  },
+  "chores": {
+    "sat-eve": [
+      {
+        "id": "laundry",
+        "name": "Laundry"
+      }
+    ],
+    "mon-am": [
+      {
+        "id": "laundry",
+        "name": "Laundry"
+      }
+    ]
+  }
+}

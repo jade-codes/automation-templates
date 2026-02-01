@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Planner</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>📅 Weekly Planner</h1>
+            <p class="subtitle">Bundles • Utilities • Activities • Chores</p>
+            <button class="btn-print" onclick="window.print()">🖨️ Print</button>
+        </header>
+
+        <nav class="tab-nav">
+            <button class="tab-btn active" data-tab="bundles">🍽️ Bundles + Utilities</button>
+            <button class="tab-btn" data-tab="activities">🎯 Activities</button>
+            <button class="tab-btn" data-tab="chores">🧹 Chores</button>
+            <button class="tab-btn" data-tab="shopping">🛒 Shopping List</button>
+            <button class="tab-btn" data-tab="weekly">📅 Weekly Plan</button>
+            <button class="tab-btn" data-tab="items">🥕 Items</button>
+            <button class="tab-btn" data-tab="import">📥 Import</button>
+        </nav>
+
+        <main class="content">
+            <!-- Bundles Section -->
+            <section id="bundles" class="tab-content active">
+                <div class="section-header">
+                    <h2>Bundle + Utilities Library</h2>
+                    <div class="header-actions">
+                        <button id="add-selected-btn" class="btn-add" onclick="addSelectedToShoppingList()" disabled>Add Selected to Shopping List</button>
+                        <button class="btn-add" onclick="openModal('meal')">+ Add Item</button>
+                    </div>
+                </div>
+                <div class="filter-bar">
+                    <input type="text" id="meal-search" class="search-input" placeholder="🔍 Search Bundles and Utilities...">
+                </div>
+                
+                <div class="category-lists">
+                    <div class="category-section" data-category="breakfast">
+                        <h3 class="category-header">
+                            <span class="toggle-icon">▼</span> 🍳 Breakfasts
+                        </h3>
+                        <ul id="breakfast-list" class="meal-list"></ul>
+                    </div>
+                    
+                    <div class="category-section" data-category="lunch">
+                        <h3 class="category-header">
+                            <span class="toggle-icon">▼</span> 🥪 Lunches
+                        </h3>
+                        <ul id="lunch-list" class="meal-list"></ul>
+                    </div>
+                    
+                    <div class="category-section" data-category="dinner">
+                        <h3 class="category-header">
+                            <span class="toggle-icon">▼</span> 🍝 Dinners
+                        </h3>
+                        <ul id="dinner-list" class="meal-list"></ul>
+                    </div>
+                    
+                    <div class="category-section" data-category="snack">
+                        <h3 class="category-header">
+                            <span class="toggle-icon">▼</span> 🍿 Snacks
+                        </h3>
+                        <ul id="snack-list" class="meal-list"></ul>
+                    </div>
+                    
+                    <div class="category-section" data-category="household">
+                        <h3 class="category-header">
+                            <span class="toggle-icon">▼</span> 🏠 Top Ups
+                        </h3>
+                        <ul id="household-list" class="meal-list"></ul>
+                    </div>
+                    
+                    <div class="category-section" data-category="toiletries">
+                        <h3 class="category-header">
+                            <span class="toggle-icon">▼</span> 🧴 Toiletries
+                        </h3>
+                        <ul id="toiletries-list" class="meal-list"></ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Activities Section -->
+            <section id="activities" class="tab-content">
+                <div class="section-header">
+                    <h2>Activity Ideas</h2>
+                    <button class="btn-add" onclick="openModal('activity')">+ Add Activity</button>
+                </div>
+                <div class="filter-bar">
+                    <input type="text" id="activity-search" class="search-input" placeholder="🔍 Search activities..." oninput="filterActivities()">
+                    <select id="activity-filter">
+                        <option value="all">All Activities</option>
+                        <option value="indoor">Indoor</option>
+                        <option value="outdoor">Outdoor</option>
+                        <option value="social">Social</option>
+                        <option value="solo">Solo</option>
+                    </select>
+                </div>
+                <div id="activities-list" class="items-grid"></div>
+            </section>
+
+            <!-- Chores Section -->
+            <section id="chores" class="tab-content">
+                <div class="section-header">
+                    <h2>Chores List</h2>
+                    <button class="btn-add" onclick="openModal('chore')">+ Add Chore</button>
+                </div>
+                <div class="filter-bar">
+                    <input type="text" id="chore-search" class="search-input" placeholder="🔍 Search chores..." oninput="filterChores()">
+                    <select id="chore-filter">
+                        <option value="all">All Chores</option>
+                        <option value="daily">Daily</option>
+                        <option value="weekly">Weekly</option>
+                        <option value="monthly">Monthly</option>
+                        <option value="one-off">One-off</option>
+                    </select>
+                </div>
+                <div id="chores-list" class="items-grid"></div>
+            </section>
+
+            <!-- Shopping List Section -->
+            <section id="shopping" class="tab-content">
+                <div class="section-header">
+                    <h2>Shopping List</h2>
+                    <div class="header-actions">
+                        <button class="btn-secondary" onclick="exportToGoogleKeep()">📝 Send to Keep</button>
+                        <button class="btn-secondary" onclick="copyShoppingList()">📋 Copy</button>
+                        <button class="btn-secondary" onclick="clearCheckedItems()">Clear Completed</button>
+                        <button class="btn-secondary" onclick="clearShoppingList()">Clear All</button>
+                    </div>
+                </div>
+                
+                <ul id="shopping-list" class="shopping-list"></ul>
+                
+                <div id="shopping-empty" class="empty-state">
+                    <p>No items yet. Select bundles and click "Add Selected to Shopping List".</p>
+                </div>
+            </section>
+
+            <!-- Weekly Plan Section -->
+            <section id="weekly" class="tab-content">
+                <div class="section-header">
+                    <h2>Weekly Plan</h2>
+                    <div class="header-actions">
+                        <button class="btn-secondary" onclick="printWeeklyPlan()">🖨️ Print Plan</button>
+                        <button class="btn-secondary" onclick="clearWeeklyPlan()">Clear Week</button>
+                    </div>
+                </div>
+                <div id="weekly-calendar" class="weekly-calendar"></div>
+            </section>
+
+            <!-- Import Section -->
+            <section id="import" class="tab-content">
+                <div class="section-header">
+                    <h2>Import Products</h2>
+                </div>
+                <div class="import-container">
+                    <div class="import-instructions">
+                        <h3>How to import from Tesco:</h3>
+                        <ol>
+                            <li>Go to a Tesco order page</li>
+                            <li>Press F12 → Console</li>
+                            <li>Paste the script below and press Enter</li>
+                            <li>Paste the copied JSON here</li>
+                        </ol>
+                        <pre class="import-script">const items = [...document.querySelectorAll('a[href*="/products/"]')].map(a => ({
+  name: a.textContent?.trim() || a.querySelector('img')?.alt,
+  url: a.href
+})).filter(i => i.name && i.url);
+copy(JSON.stringify(items, null, 2));
+console.log(`Copied ${items.length} products!`);</pre>
+                    </div>
+                    <div class="import-input">
+                        <textarea id="import-json" placeholder="Paste JSON here..."></textarea>
+                        <button class="btn-add" onclick="parseImportedProducts()">Parse Products</button>
+                    </div>
+                    <div id="imported-products" class="imported-products-list"></div>
+                </div>
+            </section>
+
+            <!-- Items Section -->
+            <section id="items" class="tab-content">
+                <div class="section-header">
+                    <h2>All Items</h2>
+                    <div class="header-actions">
+                        <button class="btn-add" onclick="addNewItem()">+ Add Item</button>
+                        <label class="filter-checkbox"><input type="checkbox" id="show-missing-only" onchange="renderItemsList()"> Show missing URLs only</label>
+                        <input type="text" id="item-search" placeholder="Search..." oninput="renderItemsList()">
+                    </div>
+                </div>
+                <div class="items-stats" id="items-stats"></div>
+                <div id="items-list" class="ingredients-table"></div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal for Dinner Day Selection -->
+    <div id="dinner-modal" class="modal">
+        <div class="modal-content modal-small">
+            <span class="close-btn" onclick="closeDinnerModal()">&times;</span>
+            <h2>Assign Dinners to Days</h2>
+            <p class="modal-subtitle">Select which day you'll have each dinner</p>
+            <div id="dinner-day-list" class="dinner-day-list"></div>
+            <div class="form-actions">
+                <button type="button" class="btn-cancel" onclick="closeDinnerModal()">Cancel</button>
+                <button type="button" class="btn-save" onclick="confirmDinnerDays()">Add to Lists</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Adding/Editing Items -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 id="modal-title">Add Item</h2>
+            <form id="item-form">
+                <input type="hidden" id="item-id">
+                <input type="hidden" id="item-type">
+                
+                <div class="form-group">
+                    <label for="item-name">Name</label>
+                    <input type="text" id="item-name" required placeholder="Enter item name...">
+                </div>
+
+                <!-- Meal-specific fields -->
+                <div id="meal-fields" class="type-fields">
+                    <div class="form-group">
+                        <label for="meal-category">Category</label>
+                        <select id="meal-category">
+                            <option value="breakfast">Breakfast</option>
+                            <option value="lunch">Lunch</option>
+                            <option value="dinner">Dinner</option>
+                            <option value="snack">Snack</option>
+                            <option value="household">Top Ups</option>
+                            <option value="toiletries">Toiletries</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Items</label>
+                        <div id="items-editor" class="items-editor">
+                            <div class="item-rows" id="item-rows"></div>
+                            <button type="button" class="btn-secondary" onclick="addItemRow()">+ Add Item</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Activity-specific fields -->
+                <div id="activity-fields" class="type-fields" style="display:none;">
+                    <div class="form-group">
+                        <label for="activity-category">Category</label>
+                        <select id="activity-category">
+                            <option value="indoor">Indoor</option>
+                            <option value="outdoor">Outdoor</option>
+                            <option value="social">Social</option>
+                            <option value="solo">Solo</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="activity-duration">Duration (hours)</label>
+                        <input type="number" id="activity-duration" min="0" step="0.5" value="2">
+                    </div>
+                    <div class="form-group">
+                        <label for="activity-cost">Estimated Cost (£)</label>
+                        <input type="number" id="activity-cost" min="0" value="0">
+                    </div>
+                </div>
+
+                <!-- Chore-specific fields -->
+                <div id="chore-fields" class="type-fields" style="display:none;">
+                    <div class="form-group">
+                        <label for="chore-frequency">Frequency</label>
+                        <select id="chore-frequency">
+                            <option value="daily">Daily</option>
+                            <option value="weekly">Weekly</option>
+                            <option value="monthly">Monthly</option>
+                            <option value="one-off">One-off</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="chore-effort">Effort Level</label>
+                        <select id="chore-effort">
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="chore-assignee">Assignee</label>
+                        <input type="text" id="chore-assignee" placeholder="Optional">
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button>
+                    <button type="submit" class="btn-save">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal for Editing Product Items -->
+    <div id="item-edit-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeItemModal()">&times;</span>
+            <h2 id="item-modal-title">Edit Item</h2>
+            <form id="item-edit-form">
+                <input type="hidden" id="edit-item-id">
+                
+                <div class="form-group">
+                    <label for="edit-item-name">Name</label>
+                    <input type="text" id="edit-item-name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="edit-item-unit">Unit</label>
+                    <input type="text" id="edit-item-unit" placeholder="e.g., pack, kg, each">
+                </div>
+                
+                <div class="form-group">
+                    <label for="edit-item-category">Category</label>
+                    <input type="text" id="edit-item-category" placeholder="e.g., Fridge|Dairy">
+                </div>
+                
+                <div class="form-group">
+                    <label>Sources</label>
+                    <div id="edit-item-sources"></div>
+                    <button type="button" class="btn-secondary" onclick="addEditSource()">+ Add Source</button>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn-cancel" onclick="closeItemModal()">Cancel</button>
+                    <button type="submit" class="btn-save">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>

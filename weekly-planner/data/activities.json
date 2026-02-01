@@ -1,0 +1,17 @@
+[
+  {
+    "id": "gym",
+    "name": "Gym",
+    "days": ["mon", "wed", "fri"]
+  },
+  {
+    "id": "yoga",
+    "name": "Yoga",
+    "days": ["tue", "thu"]
+  },
+  {
+    "id": "swimming",
+    "name": "Swimming",
+    "days": ["sat"]
+  }
+]

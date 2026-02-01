@@ -1,0 +1,17 @@
+[
+  {
+    "id": "laundry",
+    "name": "Laundry",
+    "days": ["sat"]
+  },
+  {
+    "id": "vacuuming",
+    "name": "Vacuuming",
+    "days": ["sun"]
+  },
+  {
+    "id": "groceries",
+    "name": "Grocery Shopping",
+    "days": ["sat"]
+  }
+]

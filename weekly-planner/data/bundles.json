@@ -1,0 +1,68 @@
+[
+  {
+    "id": "spaghetti-bolognese",
+    "name": "Spaghetti Bolognese",
+    "category": "dinner",
+    "type": "meal",
+    "url": "",
+    "items": [
+      { "itemId": "minced-beef", "quantity": 1 },
+      { "itemId": "pasta", "quantity": 1 },
+      { "itemId": "tomato-sauce", "quantity": 1 },
+      { "itemId": "onion", "quantity": 2 },
+      { "itemId": "garlic", "quantity": 1 },
+      { "itemId": "olive-oil", "quantity": 1 }
+    ]
+  },
+  {
+    "id": "chicken-stir-fry",
+    "name": "Chicken Stir Fry",
+    "category": "dinner",
+    "type": "meal",
+    "url": "",
+    "items": [
+      { "itemId": "chicken-breast", "quantity": 1 },
+      { "itemId": "broccoli", "quantity": 1 },
+      { "itemId": "rice", "quantity": 1 },
+      { "itemId": "garlic", "quantity": 1 },
+      { "itemId": "olive-oil", "quantity": 1 }
+    ]
+  },
+  {
+    "id": "salmon-rice",
+    "name": "Salmon with Rice",
+    "category": "lunch",
+    "type": "meal",
+    "url": "",
+    "items": [
+      { "itemId": "salmon", "quantity": 1 },
+      { "itemId": "rice", "quantity": 1 },
+      { "itemId": "broccoli", "quantity": 1 },
+      { "itemId": "butter", "quantity": 1 }
+    ]
+  },
+  {
+    "id": "cheese-omelette",
+    "name": "Cheese Omelette",
+    "category": "breakfast",
+    "type": "meal",
+    "url": "",
+    "items": [
+      { "itemId": "eggs", "quantity": 1 },
+      { "itemId": "cheese", "quantity": 1 },
+      { "itemId": "butter", "quantity": 1 }
+    ]
+  },
+  {
+    "id": "toast-breakfast",
+    "name": "Toast & Eggs",
+    "category": "breakfast",
+    "type": "meal",
+    "url": "",
+    "items": [
+      { "itemId": "bread", "quantity": 1 },
+      { "itemId": "eggs", "quantity": 1 },
+      { "itemId": "butter", "quantity": 1 }
+    ]
+  }
+]

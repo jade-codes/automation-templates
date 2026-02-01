@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Tesco Shopping List Adder",
+  "version": "1.0",
+  "description": "Add items from your shopping list to Tesco basket",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://www.tesco.com/*",
+    "http://localhost:8080/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.tesco.com/groceries/*"],
+      "js": ["content.js"]
+    }
+  ]
+}

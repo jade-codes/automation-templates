@@ -1,0 +1,137 @@
+[
+  {
+    "id": "chicken-breast",
+    "name": "Chicken Breast",
+    "category": "Meat",
+    "unit": "pack",
+    "sources": [
+      { "store": "Tesco", "url": "" }
+    ]
+  },
+  {
+    "id": "pasta",
+    "name": "Pasta",
+    "category": "Pantry",
+    "unit": "bag",
+    "sources": [
+      { "store": "Tesco", "url": "" }
+    ]
+  },
+  {
+    "id": "tomato-sauce",
+    "name": "Tomato Sauce",
+    "category": "Pantry",
+    "unit": "jar",
+    "sources": [
+      { "store": "Tesco", "url": "" }
+    ]
+  },
+  {
+    "id": "onion",
+    "name": "Onion",
+    "category": "Produce",
+    "unit": "each",
+    "sources": [
+      { "store": "Any", "url": "" }
+    ]
+  },
+  {
+    "id": "garlic",
+    "name": "Garlic",
+    "category": "Produce",
+    "unit": "bulb",
+    "sources": [
+      { "store": "Any", "url": "" }
+    ]
+  },
+  {
+    "id": "olive-oil",
+    "name": "Olive Oil",
+    "category": "Pantry",
+    "unit": "bottle",
+    "sources": [
+      { "store": "Tesco", "url": "" }
+    ]
+  },
+  {
+    "id": "eggs",
+    "name": "Eggs",
+    "category": "Dairy",
+    "unit": "dozen",
+    "sources": [
+      { "store": "Tesco", "url": "" }
+    ]
+  },
+  {
+    "id": "milk",
+    "name": "Milk",
+    "category": "Dairy",
+    "unit": "litre",
+    "sources": [
+      { "store": "Tesco", "url": "" }
+    ]
+  },
+  {
+    "id": "bread",
+    "name": "Bread",
+    "category": "Bakery",
+    "unit": "loaf",
+    "sources": [
+      { "store": "Tesco", "url": "" }
+    ]
+  },
+  {
+    "id": "butter",
+    "name": "Butter",
+    "category": "Dairy",
+    "unit": "pack",
+    "sources": [
+      { "store": "Tesco", "url": "" }
+    ]
+  },
+  {
+    "id": "rice",
+    "name": "Rice",
+    "category": "Pantry",
+    "unit": "kg",
+    "sources": [
+      { "store": "Tesco", "url": "" }
+    ]
+  },
+  {
+    "id": "salmon",
+    "name": "Salmon Fillet",
+    "category": "Fish",
+    "unit": "pack",
+    "sources": [
+      { "store": "Tesco", "url": "" }
+    ]
+  },
+  {
+    "id": "broccoli",
+    "name": "Broccoli",
+    "category": "Produce",
+    "unit": "head",
+    "sources": [
+      { "store": "Any", "url": "" }
+    ]
+  },
+  {
+    "id": "cheese",
+    "name": "Cheddar Cheese",
+    "category": "Dairy",
+    "unit": "block",
+    "sources": [
+      { "store": "Tesco", "url": "" }
+    ]
+  },
+  {
+    "id": "minced-beef",
+    "name": "Minced Beef",
+    "category": "Meat",
+    "unit": "pack",
+    "sources": [
+      { "store": "Tesco", "url": "" }
+    ]
+  }
+]

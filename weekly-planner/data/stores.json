@@ -1,0 +1,7 @@
+[
+  { "id": "tesco", "name": "Tesco", "default": true },
+  { "id": "aldi", "name": "Aldi", "default": false },
+  { "id": "waitrose", "name": "Waitrose", "default": false },
+  { "id": "sainsburys", "name": "Sainsburys", "default": false },
+  { "id": "any", "name": "Any", "default": false }
+]
