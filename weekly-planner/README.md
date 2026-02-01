@@ -106,15 +106,13 @@ Adds items directly to your Tesco basket from the shopping list.
 
 **Installation:**
 
-1. Download `tesco-extension-vX.X.X.zip` from [Releases](https://github.com/jade-codes/automation-templates/releases)
-2. Unzip to a folder (e.g., `~/tesco-extension`)
-3. Open your browser's extensions page:
+1. Open your browser's extensions page:
    - **Edge**: `edge://extensions`
    - **Chrome**: `chrome://extensions`
-4. Enable **Developer mode** (toggle in top-right)
-5. Click **Load unpacked**
-6. Select the unzipped `tesco` folder
-7. The extension icon should appear in your toolbar
+2. Enable **Developer mode** (toggle in top-right)
+3. Click **Load unpacked**
+4. Select the `extensions/tesco` folder from this repo
+5. The extension icon should appear in your toolbar
 
 **Usage:**
 1. Open your Weekly Planner shopping list
